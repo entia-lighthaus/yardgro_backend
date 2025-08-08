@@ -23,17 +23,18 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.AllowAny]
+
     # Enable search & filter by name and category
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'description', 'category__name']
     ordering_fields = ['price', 'created_at']
-    ordering = ['-created_at']
+    ordering = ['id'] 
 
 class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.AllowAny]
-    
+
 
 # Rating Views
 class ProductRatingCreateUpdateAPIView(generics.CreateAPIView):
@@ -52,7 +53,7 @@ class ProductRatingCreateUpdateAPIView(generics.CreateAPIView):
         except Product.DoesNotExist:
             return Response({"detail": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
         
-        # Check if rating exists for this user and product
+        # This is to Check if rating exists for this user and product
         rating_obj = ProductRating.objects.filter(product=product, user=user).first()
         
         # Prepare data without user field (it's read-only in serializer)
