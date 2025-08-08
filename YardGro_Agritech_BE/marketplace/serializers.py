@@ -8,6 +8,8 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'description']
 
+
+
 # Product Rating Serializer
 class ProductRatingSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only=True)
@@ -15,6 +17,8 @@ class ProductRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductRating
         fields = ['id', 'user', 'rating', 'review', 'created_at']
+
+
 
 # Product Serializer
 class ProductSerializer(serializers.ModelSerializer):
@@ -28,9 +32,11 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = [
-            'id', 'name', 'description', 'price', 'stock', 'created_at', 'updated_at',
+            'id', 'name', 'description', 'price', 'stock', 'image', 'created_at', 'updated_at',
             'category', 'category_id', 'average_rating', 'ratings'
         ]
+
+
 
 # Favorite Serializer
 class FavoriteSerializer(serializers.ModelSerializer):
