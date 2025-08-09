@@ -28,7 +28,7 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'description', 'category__name']
     ordering_fields = ['price', 'created_at']
-    ordering = ['id'] 
+    ordering = ['id'] # this enables ordering to display from 1-20.. not in reverse, 20 - 1
 
 class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()

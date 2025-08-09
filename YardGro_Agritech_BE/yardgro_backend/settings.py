@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
     # Local apps
     'marketplace',
+    'users',       # Custom user model
+    'profiles',     # Role-specific profiles
 ]
 
 
@@ -61,6 +63,8 @@ REST_FRAMEWORK = {
 }
 
 
+
+AUTH_USER_MODEL = 'users.User'
 
 
 MIDDLEWARE = [
