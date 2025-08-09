@@ -25,6 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('api/marketplace/', include('marketplace.urls')),
+    path('api/users/', include('users.urls')), # Path for user registration and authentication
+
 ]
 
 
