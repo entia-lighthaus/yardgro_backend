@@ -17,7 +17,8 @@ class BuyerProfile(models.Model):
     ('vendor', 'Vendor'),
 ]
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    buyer_type = models.CharField(max_length=20, choices=BUYER_TYPE_CHOICES)
+    #buyer_type = models.CharField(max_length=20, choices=BUYER_TYPE_CHOICES, default='individual')
+    buyer_type = models.CharField(max_length=20, choices=BUYER_TYPE_CHOICES, blank=True, null=True)
     company_name = models.CharField(max_length=255, blank=True, null=True)
     contact_person = models.CharField(max_length=255, blank=True, null=True)
 

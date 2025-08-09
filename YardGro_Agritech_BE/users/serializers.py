@@ -49,15 +49,31 @@ class RegistrationSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         """Cross-field validation based on role"""
         role = attrs.get('role')
+        buyer_type = attrs.get('buyer_type')
+        
+        # Clean up empty strings - convert to None for optional fields
+        optional_fields = ['company_name', 'contact_person', 'farm_name', 'location', 'crops_grown', 'materials_accepted']
+        for field in optional_fields:
+            if field in attrs and attrs[field] == '':
+                attrs[field] = None
         
         if role == 'buyer':
-            # Buyer can have buyer_type and company_name
-            pass
+            # Only vendors require company_name
+            if buyer_type == 'vendor':
+                if not attrs.get('company_name'):
+                    raise serializers.ValidationError({
+                        'company_name': 'Company name is required for vendors.'
+                    })
+            # For individuals and households, company_name is optional
+            elif buyer_type in ['individual', 'household']:
+                # Company name is optional - can be provided or not
+                pass
+                
         elif role == 'farmer':
-            # Farmer should have farm details
+            # Farmer validation - all fields optional for now
             pass
         elif role == 'recycler':
-            # Recycler should have company details
+            # Recycler validation - all fields optional for now
             pass
             
         return attrs
