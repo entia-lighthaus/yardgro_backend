@@ -1,21 +1,27 @@
-from rest_framework import generics, status
-from rest_framework.permissions import AllowAny
+from rest_framework import generics, status, serializers
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+
+# JWT imports
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.tokens import RefreshToken
+
 from .serializers import RegistrationSerializer
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class RegistrationView(generics.CreateAPIView):
     serializer_class = RegistrationSerializer
     permission_classes = [AllowAny]
     authentication_classes = []  # Disable authentication for registration
-    
+
     def create(self, request, *args, **kwargs):
-        print(f"Request data: {request.data}")  # Debug print
-        
+        print(f"Incoming registration data: {request.data}")  # Debug print
+
         serializer = self.get_serializer(data=request.data)
-        
+
         if not serializer.is_valid():
             print(f"Validation errors: {serializer.errors}")  # Debug print
             return Response(
@@ -25,7 +31,7 @@ class RegistrationView(generics.CreateAPIView):
                 },
                 status=status.HTTP_400_BAD_REQUEST
             )
-        
+
         try:
             user = serializer.save()
             return Response(
@@ -37,10 +43,49 @@ class RegistrationView(generics.CreateAPIView):
                 },
                 status=status.HTTP_201_CREATED
             )
-        except Exception as e:
-            print(f"Error creating user: {str(e)}")  # Debug print
+        except serializers.ValidationError as ve:
+            print(f"Profile creation error: {ve.detail}")  # Debug print
             return Response(
-                {"message": f"Registration failed: {str(e)}"},
+                {
+                    "message": "Registration failed",
+                    "errors": ve.detail
+                },
+                status=status.HTTP_409_CONFLICT
+            )
+        except Exception as e:
+            print(f"Unexpected error: {str(e)}")  # Debug print
+            return Response(
+                {
+                    "message": "An unexpected error occurred during registration",
+                    "error": str(e)
+                },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+
+# Login (JWT Token)
+class LoginView(TokenObtainPairView):
+    permission_classes = [AllowAny]
+
+
+# Refresh token
+class TokenRefreshCustomView(TokenRefreshView):
+    permission_classes = [AllowAny]
+
+
+# Logout with token blacklisting
+class LogoutView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        try:
+            refresh_token = request.data.get("refresh")
+            if not refresh_token:
+                return Response({"error": "Refresh token is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            return Response({"message": "Successfully logged out"}, status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)

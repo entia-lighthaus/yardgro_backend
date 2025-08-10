@@ -7,7 +7,6 @@ User = settings.AUTH_USER_MODEL  # Custom user model
 # Role-Specific Profiles
 # One-to-One relationships so each user can have exactly one profile for their role.
 
-
 # BUYER PROFILE
 # This profile can be for individuals or companies
 class BuyerProfile(models.Model):
