@@ -1,15 +1,19 @@
-from rest_framework import generics, status, serializers
+from rest_framework import generics, status, serializers, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.contrib.auth import get_user_model
 
 # JWT imports
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .serializers import RegistrationSerializer
+from .serializers import RegistrationSerializer, UserDetailSerializer
 
+
+
+User = get_user_model()
 
 @method_decorator(csrf_exempt, name='dispatch')
 class RegistrationView(generics.CreateAPIView):
@@ -89,3 +93,12 @@ class LogoutView(generics.GenericAPIView):
             return Response({"message": "Successfully logged out"}, status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserDetailView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserDetailSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = 'username'
+
+

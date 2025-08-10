@@ -19,7 +19,7 @@ class BuyerProfile(models.Model):
     #buyer_type = models.CharField(max_length=20, choices=BUYER_TYPE_CHOICES, default='individual')
     buyer_type = models.CharField(max_length=20, choices=BUYER_TYPE_CHOICES, blank=True, null=True)
     company_name = models.CharField(max_length=255, blank=True, null=True)
-    contact_person = models.CharField(max_length=255, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         name_display = self.company_name if self.company_name else self.user.username
@@ -32,7 +32,7 @@ class FarmerProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='farmer_profile')
     farm_name = models.CharField(max_length=255, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
-    crops_grown = models.TextField(blank=True, null=True)  # Could be JSON in future
+    products = models.TextField(blank=True, null=True)  # Could be JSON in future
 
     def __str__(self):
         name_display = self.farm_name if self.farm_name else self.user.username

@@ -4,6 +4,53 @@ from profiles.models import FarmerProfile, BuyerProfile, RecyclerProfile
 
 User = get_user_model()
 
+# Serializers for role-specific profiles
+
+class FarmerProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FarmerProfile
+        fields = ['farm_name', 'location', 'products'] 
+
+
+
+class BuyerProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BuyerProfile
+        fields = ['buyer_type', 'company_name', 'address']
+
+
+
+class RecyclerProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RecyclerProfile
+        fields = ['user','company_name', 'materials_accepted']  
+
+
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    farmer_profile = FarmerProfileSerializer(read_only=True)
+    buyer_profile = BuyerProfileSerializer(read_only=True)
+    recycler_profile = RecyclerProfileSerializer(read_only=True)
+
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'username',
+            'email',
+            'role',
+            'date_joined',
+            'farmer_profile',
+            'buyer_profile',
+            'recycler_profile',
+        ]
+
+
+
+#Registration serializer for creating users with role-specific profiles
+# This serializer handles the creation of users and their associated profiles based on the role.
+# It validates the role and ensures that the required fields for each profile type are provided.
+
 class RegistrationSerializer(serializers.ModelSerializer):
     # Buyer-specific
     buyer_type = serializers.ChoiceField(
