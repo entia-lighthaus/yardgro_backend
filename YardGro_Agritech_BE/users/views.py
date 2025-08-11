@@ -9,7 +9,8 @@ from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .serializers import RegistrationSerializer, UserDetailSerializer
+from .serializers import RegistrationSerializer, UserDetailSerializer, UserUpdateSerializer
+
 
 
 
@@ -94,7 +95,7 @@ class LogoutView(generics.GenericAPIView):
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-
+# User Detail View
 class UserDetailView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserDetailSerializer
@@ -102,3 +103,14 @@ class UserDetailView(generics.RetrieveAPIView):
     lookup_field = 'username'
 
 
+
+# Update User Profile
+class UserProfileUpdateView(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserUpdateSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    http_method_names = ['patch', 'put']  # allow both PATCH and PUT methods
+
+    def get_object(self):
+        return self.request.user

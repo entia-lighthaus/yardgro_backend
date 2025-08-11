@@ -2,6 +2,13 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from profiles.models import FarmerProfile, BuyerProfile, RecyclerProfile
 
+from profiles.serializers import (
+    FarmerProfileUpdateSerializer,
+    BuyerProfileUpdateSerializer,
+    RecyclerProfileUpdateSerializer
+)
+
+
 User = get_user_model()
 
 # Serializers for role-specific profiles
@@ -44,6 +51,43 @@ class UserDetailSerializer(serializers.ModelSerializer):
             'buyer_profile',
             'recycler_profile',
         ]
+
+
+
+# This serializer allows updating the user details and their associated profiles based on the role.
+# It handles the nested updates for each profile type.
+# It assumes that the user is authenticated and has permission to update their own details.
+class UserUpdateSerializer(serializers.ModelSerializer):
+    farmer_profile = FarmerProfileUpdateSerializer(required=False, allow_null=True)
+    buyer_profile = BuyerProfileUpdateSerializer(required=False, allow_null=True)
+    recycler_profile = RecyclerProfileUpdateSerializer(required=False, allow_null=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'farmer_profile', 'buyer_profile', 'recycler_profile']
+
+    def update(self, instance, validated_data):
+        # Update base user fields only if provided
+        if 'username' in validated_data:
+            instance.username = validated_data['username']
+        if 'email' in validated_data:
+            instance.email = validated_data['email']
+        instance.save()
+
+        # Role-specific updates
+        if instance.role == 'farmer' and 'farmer_profile' in validated_data:
+            farmer_data = validated_data.pop('farmer_profile', {})
+            FarmerProfile.objects.update_or_create(user=instance, defaults=farmer_data)
+
+        elif instance.role == 'buyer' and 'buyer_profile' in validated_data:
+            buyer_data = validated_data.pop('buyer_profile', {})
+            BuyerProfile.objects.update_or_create(user=instance, defaults=buyer_data)
+
+        elif instance.role == 'recycler' and 'recycler_profile' in validated_data:
+            recycler_data = validated_data.pop('recycler_profile', {})
+            RecyclerProfile.objects.update_or_create(user=instance, defaults=recycler_data)
+
+        return instance
 
 
 
