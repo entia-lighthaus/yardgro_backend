@@ -19,18 +19,32 @@ from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from django.conf import settings
 from django.conf.urls.static import static
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/api-token-auth/', obtain_auth_token, name='api_token_auth'),
-    path('api/marketplace/', include('marketplace.urls')),
-    path('api/users/', include('users.urls')), # Path for user registration and authentication
 
+    # Token authentication (DRF)
+    path('api/api-token-auth/', obtain_auth_token, name='api_token_auth'),
+
+    # JWT authentication (SimpleJWT)
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # App URLs
+    path('api/marketplace/', include('marketplace.urls')),
+    path('api/users/', include('users.urls')),  # Registration & user-related endpoints
+    path('api/profiles/', include('profiles.urls')),  # Role-specific profile endpoints
+
+    # Authentication urls
+    path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 ]
 
-
+#
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 

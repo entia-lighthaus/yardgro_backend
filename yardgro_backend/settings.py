@@ -48,6 +48,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist', 
 
+    'dj_rest_auth',
+    'django.contrib.sites',  # required by allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     # Local apps
     'marketplace',
     'users',       # Custom user model
@@ -75,6 +81,11 @@ REST_FRAMEWORK = {
     ],
 }
 
+# Registration settings
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'users.serializers.RegistrationSerializer',
+}
+
 # JWT settings
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),  # short lifetime for security
@@ -83,7 +94,7 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,
 }
 
-
+SITE_ID = 1
 
 AUTH_USER_MODEL = 'users.User'
 
@@ -96,6 +107,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
+
 ]
 
 ROOT_URLCONF = 'yardgro_backend.urls'

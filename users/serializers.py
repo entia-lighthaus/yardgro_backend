@@ -96,39 +96,48 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 # It validates the role and ensures that the required fields for each profile type are provided.
 
 class RegistrationSerializer(serializers.ModelSerializer):
+
     # Buyer-specific
     buyer_type = serializers.ChoiceField(
         choices=[
             ('individual', 'Individual'),
             ('household', 'Household'),
-            ('vendor', 'Vendor'),
+            ('company', 'Company'),
         ],
         required=False
     )
-    contact_person = serializers.CharField(required=False)
+    address = serializers.CharField(required=False)
     
+
     # Farmer-specific
     farm_name = serializers.CharField(required=False)
-    location = serializers.CharField(required=False)  # Changed from farm_location
-    crops_grown = serializers.CharField(required=False)
+    location = serializers.CharField(required=False)  
+    products = serializers.CharField(required=False)
     
+
+
     # Recycler-specific
     company_name = serializers.CharField(required=False)
     materials_accepted = serializers.CharField(required=False)  # Changed from recycling_capacity
     
     password = serializers.CharField(write_only=True)
     
+
+
     class Meta:
         model = User
         fields = [
             'username', 'email', 'password', 'role',
+
             # Farmer
-            'farm_name', 'location', 'crops_grown',
+            'farm_name', 'location', 'products',
             # Buyer
-            'buyer_type', 'contact_person',
+            'buyer_type', 'address',
             # Recycler  
             'company_name', 'materials_accepted',
         ]
+    
+
     
     def validate_role(self, value):
         """Ensure role is valid"""
@@ -143,14 +152,14 @@ class RegistrationSerializer(serializers.ModelSerializer):
         buyer_type = attrs.get('buyer_type')
         
         # Clean up empty strings - convert to None for optional fields
-        optional_fields = ['company_name', 'contact_person', 'farm_name', 'location', 'crops_grown', 'materials_accepted']
+        optional_fields = ['company_name', 'contact_person', 'farm_name', 'location', 'products', 'materials_accepted']
         for field in optional_fields:
             if field in attrs and attrs[field] == '':
                 attrs[field] = None
         
         if role == 'buyer':
             # Only vendors require company_name
-            if buyer_type == 'vendor':
+            if buyer_type == 'company':
                 if not attrs.get('company_name'):
                     raise serializers.ValidationError({
                         'company_name': 'Company name is required for vendors.'
@@ -163,6 +172,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         elif role == 'farmer':
             # Farmer validation - all fields optional for now
             pass
+
         elif role == 'recycler':
             # Recycler validation - all fields optional for now
             pass
@@ -176,7 +186,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         
         # Extract profile-specific fields (these aren't User model fields)
         profile_data = {}
-        profile_fields = ['farm_name', 'location', 'crops_grown', 'buyer_type', 'contact_person', 'company_name', 'materials_accepted']
+        profile_fields = ['farm_name', 'location', 'products', 'buyer_type', 'address', 'company_name', 'materials_accepted']
         
         for field in profile_fields:
             if field in validated_data:
@@ -198,9 +208,9 @@ class RegistrationSerializer(serializers.ModelSerializer):
                     buyer_profile_data['buyer_type'] = profile_data['buyer_type']
                 if 'company_name' in profile_data:
                     buyer_profile_data['company_name'] = profile_data['company_name']
-                if 'contact_person' in profile_data:
-                    buyer_profile_data['contact_person'] = profile_data['contact_person']
-                
+                if 'address' in profile_data:
+                    buyer_profile_data['address'] = profile_data['address']
+
                 BuyerProfile.objects.create(**buyer_profile_data)
                 
             elif role == 'farmer':
@@ -209,9 +219,9 @@ class RegistrationSerializer(serializers.ModelSerializer):
                     farmer_profile_data['farm_name'] = profile_data['farm_name']
                 if 'location' in profile_data:
                     farmer_profile_data['location'] = profile_data['location']
-                if 'crops_grown' in profile_data:
-                    farmer_profile_data['crops_grown'] = profile_data['crops_grown']
-                
+                if 'products' in profile_data:
+                    farmer_profile_data['products'] = profile_data['products']
+
                 FarmerProfile.objects.create(**farmer_profile_data)
                 
             elif role == 'recycler':
@@ -225,7 +235,13 @@ class RegistrationSerializer(serializers.ModelSerializer):
                 
         except Exception as profile_error:
             # If profile creation fails, delete the user to maintain consistency
-            user.delete()
-            raise serializers.ValidationError(f"Profile creation failed: {str(profile_error)}")
-        
-        return user
+            # Buyer-specific
+            buyer_type = serializers.ChoiceField(
+                choices=[
+                    ('individual', 'Individual'),
+                    ('household', 'Household'),
+                    ('company', 'Company'),
+                ],
+                required=False
+            )
+            # ...existing code...

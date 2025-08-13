@@ -48,6 +48,7 @@ class RegistrationView(generics.CreateAPIView):
                 },
                 status=status.HTTP_201_CREATED
             )
+        
         except serializers.ValidationError as ve:
             print(f"Profile creation error: {ve.detail}")  # Debug print
             return Response(
@@ -105,7 +106,7 @@ class UserDetailView(generics.RetrieveAPIView):
 
 
 # Update User Profile
-class UserProfileUpdateView(generics.UpdateAPIView):
+class UserUpdateView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserUpdateSerializer
     permission_classes = [permissions.IsAuthenticated]

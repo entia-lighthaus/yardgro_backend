@@ -13,7 +13,7 @@ class BuyerProfile(models.Model):
     BUYER_TYPE_CHOICES = [
     ('individual', 'Individual'),
     ('household', 'Household'),
-    ('vendor', 'Vendor'),
+    ('company', 'Company'),
 ]
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     #buyer_type = models.CharField(max_length=20, choices=BUYER_TYPE_CHOICES, default='individual')
