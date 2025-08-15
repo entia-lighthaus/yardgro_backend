@@ -3,26 +3,36 @@ from rest_framework import generics, filters, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from .models import Category, Product, ProductRating
-from .serializers import CategorySerializer, ProductSerializer, ProductRatingSerializer
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from .models import Category, Product, ProductRating, Favorite
+from .serializers import CategorySerializer, ProductSerializer, ProductRatingSerializer, FavoriteSerializer
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
+
 
 # Category Views
+@method_decorator(csrf_exempt, name='dispatch')
 class CategoryListCreateAPIView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = [JWTAuthentication]
 
 class CategoryRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = [JWTAuthentication]
 
 
 # Product Views
+@method_decorator(csrf_exempt, name='dispatch')
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = [JWTAuthentication]
 
     # Enable search & filter by name and category
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
@@ -34,12 +44,15 @@ class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = [JWTAuthentication]
 
 
 # Rating Views
+@method_decorator(csrf_exempt, name='dispatch')
 class ProductRatingCreateUpdateAPIView(generics.CreateAPIView):
     serializer_class = ProductRatingSerializer
     permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
     
     def create(self, request, *args, **kwargs):
         user = request.user
@@ -77,4 +90,36 @@ class ProductRatingCreateUpdateAPIView(generics.CreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+
+
+# Favorite Views
+# List all favorites for the authenticated user
+
+@method_decorator(csrf_exempt, name='dispatch')
+class FavoriteListView(generics.ListAPIView):
+    serializer_class = FavoriteSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get_queryset(self):
+        return Favorite.objects.filter(user=self.request.user)
     
+
+@method_decorator(csrf_exempt, name='dispatch')
+class FavoriteCreateView(generics.CreateAPIView):
+    serializer_class = FavoriteSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class FavoriteDeleteView(generics.DestroyAPIView):
+    serializer_class = FavoriteSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get_queryset(self):
+        return Favorite.objects.filter(user=self.request.user)

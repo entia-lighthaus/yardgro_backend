@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.conf import settings
+
 
 User = get_user_model()
+
 
 # Category Model
 class Category(models.Model):
@@ -9,7 +12,7 @@ class Category(models.Model):
     description = models.TextField(blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = "Categories"  # Correct plural
+        verbose_name_plural = "Categories"  # Correct plural. Effected this change on Django Admin
 
     def __str__(self):
         return self.name
@@ -53,15 +56,15 @@ class ProductRating(models.Model):
         return f"{self.user} rated {self.product} ({self.rating})"
 
 
+
 # Favorite Model
 class Favorite(models.Model):
-    user = models.ForeignKey(User, related_name='favorites', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='favorited_by', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'product')
+        unique_together = ('user', 'product')  # A given user can only save a specific product once. No duplicates in their favorites list.
 
     def __str__(self):
-        return f"{self.user} favorited {self.product}"
-
+        return f"{self.user} saved {self.product}"
