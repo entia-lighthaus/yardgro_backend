@@ -12,21 +12,34 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 # Serializer for Product Ratings
-# This serializer handles the creation and validation of product ratings by users.
+# This serializer handles the creation and validation of product ratings.
 # It ensures that a user can only rate a product once.
 class ProductRatingSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')  # Show username, not editable
-    
+    user = serializers.ReadOnlyField(source='user.username')
+    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
+    #product = serializers.ReadOnlyField(source='product.id')
+
     class Meta:
         model = ProductRating
-        fields = ['id', 'product', 'user', 'rating', 'review', 'created_at']
-        read_only_fields = ['user', 'created_at']
+        fields = ['id', 'user', 'product', 'rating', 'review', 'created_at']
+        read_only_fields = ['id', 'user', 'product', 'created_at']
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        product = self.context['product'] if 'product' in self.context else validated_data.get('product')
+        rating = validated_data.get('rating')
+        review = validated_data.get('review', '')
+
+        # Prevent duplicate ratings for the same user and product
+        existing = ProductRating.objects.filter(user=user, product=product).first()
+        if existing:
+            # Update the existing rating
+            existing.rating = rating
+            existing.review = review
+            existing.save()
+            return existing
+        return ProductRating.objects.create(user=user, product=product, rating=rating, review=review)
     
-    def save(self, **kwargs):
-        # Ensure user is set from the request context
-        if 'user' not in kwargs and self.context.get('request'):
-            kwargs['user'] = self.context['request'].user
-        return super().save(**kwargs)
 
 
 
@@ -82,14 +95,15 @@ class FavoriteSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'product', 'product_id', 'created_at'] 
         read_only_fields = ['user', 'created_at'] 
 
-    def save(self, **kwargs):
-        # Set user from request context
-        if 'user' not in kwargs and self.context.get('request'): # Check if user is already in kwargs
-            kwargs['user'] = self.context['request'].user
-        user = kwargs['user']
-        product = kwargs.get('product')
-
-        # Prevent duplicate favorites
+    
+    def validate(self, attrs):
+        user = self.context['request'].user
+        product = attrs.get('product')
         if Favorite.objects.filter(user=user, product=product).exists():
             raise serializers.ValidationError({"detail": "your brilliant choice has been saved by you before"}) # This is a specific error message for duplicate favorites
+        return attrs
+
+    def save(self, **kwargs):
+        if 'user' not in kwargs and self.context.get('request'):
+            kwargs['user'] = self.context['request'].user
         return super().save(**kwargs)

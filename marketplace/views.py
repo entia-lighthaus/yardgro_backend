@@ -90,6 +90,20 @@ class ProductRatingCreateUpdateAPIView(generics.CreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+# Product Rating List and Detail Views
+@method_decorator(csrf_exempt, name='dispatch')
+class ProductRatingListView(generics.ListAPIView):
+    queryset = ProductRating.objects.all()
+    serializer_class = ProductRatingSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+@method_decorator(csrf_exempt, name='dispatch')
+class ProductRatingDetailView(generics.RetrieveUpdateAPIView):
+    queryset = ProductRating.objects.all()
+    serializer_class = ProductRatingSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
 
 # Favorite Views
