@@ -7,6 +7,6 @@ urlpatterns = [
     path("token/refresh/", TokenRefreshCustomView.as_view(), name="token_refresh"),
     path("logout/", LogoutView.as_view(), name="logout"),
     path('<str:username>/', UserDetailView.as_view(), name='user-detail'),
-    path('users/update/<int:pk>/', UserUpdateView.as_view(), name='user-update'),
+    path('update/<int:pk>/', UserUpdateView.as_view(), name='user-update'),
 ]
 

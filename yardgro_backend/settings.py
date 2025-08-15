@@ -60,6 +60,16 @@ INSTALLED_APPS = [
     'profiles',     # Role-specific profiles
 ]
 
+# ...existing code...
+
+# Allow registration for unauthenticated users
+REST_AUTH_REGISTER_PERMISSION_CLASSES = ['rest_framework.permissions.AllowAny']
+
+# Explicitly allow registration in allauth
+ACCOUNT_ALLOW_REGISTRATION = True
+
+# Registration settings
+REST_AUTH_REGISTER_SERIALIZER = 'users.serializers.RegistrationSerializer'
 
 
 
@@ -71,6 +81,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication', 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_RENDERER_CLASSES': [
@@ -81,10 +92,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Registration settings
-REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'users.serializers.RegistrationSerializer',
-}
+
 
 # JWT settings
 SIMPLE_JWT = {
@@ -97,6 +105,7 @@ SIMPLE_JWT = {
 SITE_ID = 1
 
 AUTH_USER_MODEL = 'users.User'
+
 
 
 MIDDLEWARE = [

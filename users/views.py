@@ -1,6 +1,7 @@
 from rest_framework import generics, status, serializers, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model
@@ -12,9 +13,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import RegistrationSerializer, UserDetailSerializer, UserUpdateSerializer
 
 
-
-
 User = get_user_model()
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class RegistrationView(generics.CreateAPIView):
@@ -38,17 +38,27 @@ class RegistrationView(generics.CreateAPIView):
             )
 
         try:
+            # Save user
             user = serializer.save()
+
+            # Generate JWT tokens
+            refresh = RefreshToken.for_user(user)
+            access_token = str(refresh.access_token)
+
             return Response(
                 {
                     "message": "User registered successfully",
                     "user_id": user.id,
                     "username": user.username,
-                    "role": user.role
+                    "role": user.role,
+                    "tokens": {
+                        "refresh": str(refresh),
+                        "access": access_token
+                    }
                 },
                 status=status.HTTP_201_CREATED
             )
-        
+
         except serializers.ValidationError as ve:
             print(f"Profile creation error: {ve.detail}")  # Debug print
             return Response(
@@ -69,6 +79,7 @@ class RegistrationView(generics.CreateAPIView):
             )
 
 
+
 # Login (JWT Token)
 class LoginView(TokenObtainPairView):
     permission_classes = [AllowAny]
@@ -80,8 +91,10 @@ class TokenRefreshCustomView(TokenRefreshView):
 
 
 # Logout with token blacklisting
+@method_decorator(csrf_exempt, name='dispatch')
 class LogoutView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication] 
 
     def post(self, request):
         try:
@@ -96,6 +109,9 @@ class LogoutView(generics.GenericAPIView):
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+
+
+
 # User Detail View
 class UserDetailView(generics.RetrieveAPIView):
     queryset = User.objects.all()
@@ -106,12 +122,13 @@ class UserDetailView(generics.RetrieveAPIView):
 
 
 # Update User Profile
+@method_decorator(csrf_exempt, name='dispatch')
 class UserUpdateView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserUpdateSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-    http_method_names = ['patch', 'put']  # allow both PATCH and PUT methods
+    authentication_classes = [JWTAuthentication]  # Use JWT for API
+    http_method_names = ['patch', 'put']
 
     def get_object(self):
-        return self.request.user
+        return User.objects.get(pk=self.kwargs['pk'])
