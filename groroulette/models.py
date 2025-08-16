@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 import uuid
 
+
 # User Preference Model
 # Stores user preferences for dietary restrictions, allergies, preferred categories, etc
 # This model is linked to the User model with a one to one relationship and allows for customization of the roulette spin.
@@ -26,13 +27,34 @@ class UserPreference(models.Model):
 # Each Spin represents a user's attempt to generate a roulette of products based on their preferences and budget.
 # The Spin model tracks the user, budget, preferences, and whether the spin is completed.
 class Spin(models.Model):
+    STATUS_CHOICES = [
+        ('generated', 'Generated'),  # Spin created, items generated
+        ('selecting', 'Selecting'),  # User is selecting items
+        ('completed', 'Completed'),  # User completed selection
+        ('abandoned', 'Abandoned'),
+    ]
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='spins')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='spins')
     budget = models.DecimalField(max_digits=10, decimal_places=2)
+    currency = models.CharField(max_length=3, default='NGN')
+    total_items_generated = models.IntegerField(default=0)
+    total_value = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    max_items_to_select = models.PositiveIntegerField(default=5)
     preferences = models.ForeignKey(UserPreference, on_delete=models.SET_NULL, null=True, blank=True)
+    preferences_snapshot = models.JSONField(default=dict)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='generated')
+    selection_started_at = models.DateTimeField(null=True, blank=True)
+    completed_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    max_selectable_items = models.PositiveIntegerField(default=5)
-    is_completed = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'spins'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Spin {self.id} - {self.user.username} - {self.budget} {self.currency}"
+
 
 
 
@@ -47,7 +69,21 @@ class SpinItem(models.Model):
     product_id = models.UUIDField()  # Reference to product in marketplace app
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    details = models.JSONField(default=dict)  # Store extra product info
+    quantity = models.IntegerField(default=1)
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    position_in_spin = models.IntegerField()  # Order in roulette result
+    is_selected = models.BooleanField(default=False)
+    selected_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        db_table = 'spin_items'
+        ordering = ['position_in_spin']
+
+    def save(self, *args, **kwargs):
+        self.total_price = self.quantity * self.unit_price
+        super().save(*args, **kwargs)
+
 
 
 
@@ -69,11 +105,37 @@ class Basket(models.Model):
 # Badge Model
 # Represents a badge that can be awarded to users based on their spins or achievements.
 # This model allows for gamification of the user experience, rewarding users for participation.
-# The spin field can link to a specific Spin that earned the badge, if applicable.
+# The badge can have different types and attributes like title, description, icon, and points.
 class Badge(models.Model):
+    BADGE_TYPES = [
+        ('smart_shopper', 'Smart Shopper'),
+        ('budget_master', 'Budget Master'),
+        ('variety_explorer', 'Variety Explorer'),
+        ('loyal_customer', 'Loyal Customer'),
+    ]
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=50, choices=BADGE_TYPES, unique=True)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    icon = models.ImageField(upload_to='badges/', blank=True)
+    points = models.IntegerField(default=10)
+
+    class Meta:
+        db_table = 'badges'
+
+
+# UserBadge Model
+# Links a user to a badge, allowing for tracking of which badges a user has earned.
+# The spin field can link to a specific Spin that earned the badge, if applicable.
+class UserBadge(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='badges')
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    badge = models.ForeignKey(Badge, on_delete=models.CASCADE)
+    spin = models.ForeignKey(Spin, on_delete=models.CASCADE, null=True, blank=True)
     earned_at = models.DateTimeField(auto_now_add=True)
-    spin = models.ForeignKey(Spin, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        unique_together = ['user', 'badge', 'spin']
+        db_table = 'user_badges'
