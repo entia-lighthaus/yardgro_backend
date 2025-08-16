@@ -38,13 +38,15 @@ urlpatterns = [
     path('api/marketplace/', include('marketplace.urls')),
     path('api/users/', include('users.urls')),  # Registration & user-related endpoints
     path('api/profiles/', include('profiles.urls')),  # Role-specific profile endpoints
+    path('api/groroulette/', include('groroulette.urls')), # GroRoulette URLS
 
     # Authentication urls
     path('api/auth/', include('dj_rest_auth.urls')),
     #path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+
 ]
 
-#
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
