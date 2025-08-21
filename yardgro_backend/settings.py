@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'marketplace',
     'users',       # Custom user model
     'profiles',     # Role-specific profiles
+    'orders',      # Order management
+    'groroulette',  # GroRoulette app
 ]
 
 # ...existing code...

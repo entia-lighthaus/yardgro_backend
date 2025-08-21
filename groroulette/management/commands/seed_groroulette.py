@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from groroulette.models import UserPreference, Spin, SpinItem, Basket, Badge, UserBadge
-from apps.products.models import Product, Category
+from marketplace.models import Product, Category
 from decimal import Decimal
 import random
 import uuid

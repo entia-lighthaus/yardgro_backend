@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 import uuid
+from marketplace.models import Product
+
 
 
 # User Preference Model
@@ -35,7 +37,7 @@ class Spin(models.Model):
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='spins')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='spins')
     budget = models.DecimalField(max_digits=10, decimal_places=2)
     currency = models.CharField(max_length=3, default='NGN')
     total_items_generated = models.IntegerField(default=0)
@@ -66,7 +68,7 @@ class Spin(models.Model):
 class SpinItem(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     spin = models.ForeignKey(Spin, on_delete=models.CASCADE, related_name='items')
-    product_id = models.UUIDField()  # Reference to product in marketplace app
+    product = models.ForeignKey(Product, on_delete=models.CASCADE) # Reference to product in marketplace app
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField(default=1)

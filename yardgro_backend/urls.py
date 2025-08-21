@@ -39,10 +39,12 @@ urlpatterns = [
     path('api/users/', include('users.urls')),  # Registration & user-related endpoints
     path('api/profiles/', include('profiles.urls')),  # Role-specific profile endpoints
     path('api/groroulette/', include('groroulette.urls')), # GroRoulette URLS
+    path('api/orders/', include('orders.urls')),  # Order management endpoints
 
     # Authentication urls
     path('api/auth/', include('dj_rest_auth.urls')),
     #path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+
 
 ]
 
