@@ -50,7 +50,7 @@
   "pk": 6,
   "fields": {
     "name": "Tubers",
-    "description": "All types of fresh Tubers & Roots, locally and internationally sourced"
+    "description": "All types of fresh Tubers & Roots, locally sourced"
   }
 },
 
@@ -59,7 +59,7 @@
   "pk": 7,
   "fields": {
     "name": "Oils",
-    "description": "All types of Proteinous Seafood & Fish"
+    "description": "All types of quality oils"
   }
 },
 
@@ -67,8 +67,8 @@
   "model": "marketplace.category",
   "pk": 8,
   "fields": {
-    "name": "Bakery & Snacks",
-    "description": "All types of quality Bakery & Snacks"
+    "name": "Bakery, Nuts & Snacks",
+    "description": "All types of quality Bakery, Nuts & Snacks"
   }
 },
 
@@ -86,7 +86,7 @@
   "pk": 10,
   "fields": {
     "name": "Spices",
-    "description": "All types of Eco & Household Essentials"
+    "description": "All types of local and exotic spices"
   }
 }
 

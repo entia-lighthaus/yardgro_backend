@@ -1215,7 +1215,993 @@
     "created_at": "2025-08-23T10:00:00.000Z",
     "updated_at": "2025-08-23T10:00:00.000Z"
   }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 68,
+  "fields": {
+    "category": 5,
+    "name": "Strawberries",
+    "description": "Sweet and juicy red strawberries. Perfect for eating fresh, in salads, or for desserts.",
+    "dietary_tags": ["Fruit", "Sweet", "Fresh"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per punnet",
+    "stock": 25,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 69,
+  "fields": {
+    "category": 5,
+    "name": "Blueberries",
+    "description": "Small, antioxidant-rich blueberries. Great for smoothies, baking, or a healthy snack.",
+    "dietary_tags": ["Fruit", "Sweet", "Antioxidants", "Fresh"],
+    "image": "",
+    "price": "2000.00",
+    "price_unit": "per punnet",
+    "stock": 20,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 70,
+  "fields": {
+    "category": 5,
+    "name": "Apples",
+    "description": "Crisp and refreshing apples. A classic fruit for snacking, juicing, or baking.",
+    "dietary_tags": ["Fruit", "Crunchy", "Fresh"],
+    "image": "",
+    "price": "800.00",
+    "price_unit": "per kg",
+    "stock": 50,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 71,
+  "fields": {
+    "category": 5,
+    "name": "Bananas",
+    "description": "Naturally sweet and energy-packed bananas. An ideal on-the-go snack.",
+    "dietary_tags": ["Fruit", "Sweet", "Energy-Boost", "Fresh"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per bunch",
+    "stock": 60,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 72,
+  "fields": {
+    "category": 5,
+    "name": "Oranges",
+    "description": "Juicy and vitamin C-rich oranges. Perfect for juicing or eating fresh.",
+    "dietary_tags": ["Fruit", "Juicy", "Vitamin-C", "Fresh"],
+    "image": "",
+    "price": "700.00",
+    "price_unit": "per kg",
+    "stock": 45,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 73,
+  "fields": {
+    "category": 5,
+    "name": "Grapes",
+    "description": "Sweet and seedless green grapes. A refreshing snack for any time of day.",
+    "dietary_tags": ["Fruit", "Sweet", "Fresh"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per kg",
+    "stock": 30,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 74,
+  "fields": {
+    "category": 5,
+    "name": "Mangoes",
+    "description": "Sweet, fragrant, and juicy mangoes. A seasonal delight for eating fresh or blending.",
+    "dietary_tags": ["Fruit", "Sweet", "Juicy", "Seasonal", "Fresh"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per kg",
+    "stock": 35,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 75,
+  "fields": {
+    "category": 5,
+    "name": "Pineapples",
+    "description": "Tropical and tangy pineapples. Excellent for juicing, grilling, or eating fresh.",
+    "dietary_tags": ["Fruit", "Sweet", "Tangy", "Tropical", "Fresh"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per piece",
+    "stock": 22,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 76,
+  "fields": {
+    "category": 5,
+    "name": "Watermelons",
+    "description": "Hydrating and sweet watermelons. The perfect fruit to cool down on a hot day.",
+    "dietary_tags": ["Fruit", "Sweet", "Juicy", "Hydrating", "Fresh"],
+    "image": "",
+    "price": "2500.00",
+    "price_unit": "per small size",
+    "stock": 15,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 77,
+  "fields": {
+    "category": 5,
+    "name": "Avocados",
+    "description": "Creamy and nutritious avocados. Ideal for salads, sandwiches, or making guacamole.",
+    "dietary_tags": ["Fruit", "Creamy", "Healthy Fats", "Fresh"],
+    "image": "",
+    "price": "1000.00",
+    "price_unit": "per piece",
+    "stock": 28,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 78,
+  "fields": {
+    "category": 6,
+    "name": "Yam",
+    "description": "A staple tuber, can be boiled, fried (as pounded yam), or roasted. A fundamental carbohydrate in many diets.",
+    "dietary_tags": ["Tuber", "Staple", "Vegan", "Gluten-Free"],
+    "image": "",
+    "price": "3500.00",
+    "price_unit": "per small tuber",
+    "stock": 40,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 79,
+  "fields": {
+    "category": 6,
+    "name": "Sweet Potato",
+    "description": "Naturally sweet and nutritious tuber. Can be boiled, fried, roasted, or used in porridges.",
+    "dietary_tags": ["Tuber", "Sweet", "Vegan", "Gluten-Free", "Healthy"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per kg",
+    "stock": 35,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 80,
+  "fields": {
+    "category": 6,
+    "name": "Irish Potatoes",
+    "description": "Versatile potatoes, perfect for making chips, mashed potatoes, stews, or boiling.",
+    "dietary_tags": ["Tuber", "Versatile", "Vegan", "Gluten-Free"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per kg",
+    "stock": 50,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 81,
+  "fields": {
+    "category": 6,
+    "name": "Cassava",
+    "description": "A rich, starchy root vegetable. Used to make garri, fufu, tapioca, and can be boiled or fried.",
+    "dietary_tags": ["Tuber", "Starchy", "Vegan", "Gluten-Free", "Local"],
+    "image": "",
+    "price": "2000.00",
+    "price_unit": "per large tuber",
+    "stock": 30,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 82,
+  "fields": {
+    "category": 6,
+    "name": "Cocoyam",
+    "description": "A smaller, nutty-flavored tuber. Often boiled, roasted, or used in traditional soups and porridges.",
+    "dietary_tags": ["Tuber", "Nutty", "Vegan", "Gluten-Free", "Local"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per kg",
+    "stock": 25,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+
+
+{
+  "model": "marketplace.product",
+  "pk": 83,
+  "fields": {
+    "category": 7,
+    "name": "Palm Oil (Zomi)",
+    "description": "Traditional red palm oil, rich in vitamins and essential for authentic Nigerian stews and soups.",
+    "dietary_tags": ["Cooking Oil", "Traditional", "Vitamin-Rich"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per 1L bottle",
+    "stock": 60,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 84,
+  "fields": {
+    "category": 7,
+    "name": "Vegetable Oil (Kings)",
+    "description": "Refined and neutral-tasting vegetable oil. Ideal for frying, baking, and general cooking.",
+    "dietary_tags": ["Cooking Oil", "Neutral Taste", "Versatile"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per 1L bottle",
+    "stock": 70,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 85,
+  "fields": {
+    "category": 7,
+    "name": "Coconut Oil",
+    "description": "100% pure, unrefined coconut oil. Adds a subtle sweetness to dishes and is great for high-heat cooking.",
+    "dietary_tags": ["Cooking Oil", "Natural", "Healthy Fats"],
+    "image": "",
+    "price": "2500.00",
+    "price_unit": "per 500ml jar",
+    "stock": 40,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 86,
+  "fields": {
+    "category": 7,
+    "name": "Groundnut Oil",
+    "description": "Aromatic oil pressed from peanuts. Imparts a rich, nutty flavor to fried dishes and stews.",
+    "dietary_tags": ["Cooking Oil", "Nutty Flavor", "Traditional"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per 1L bottle",
+    "stock": 45,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 87,
+  "fields": {
+    "category": 7,
+    "name": "Olive Oil (Extra Virgin)",
+    "description": "High-quality, cold-pressed extra virgin olive oil. Best for dressings, dips, and low-heat cooking.",
+    "dietary_tags": ["Cooking Oil", "Premium", "Heart-Healthy"],
+    "image": "",
+    "price": "3500.00",
+    "price_unit": "per 500ml bottle",
+    "stock": 30,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 88,
+  "fields": {
+    "category": 7,
+    "name": "Sesame Oil",
+    "description": "Aromatic oil with a distinct nutty flavor. Essential for Asian-inspired stir-fries and dressings.",
+    "dietary_tags": ["Cooking Oil", "Aromatic", "Nutty"],
+    "image": "",
+    "price": "2200.00",
+    "price_unit": "per 250ml bottle",
+    "stock": 25,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 89,
+  "fields": {
+    "category": 7,
+    "name": "Sunflower Oil",
+    "description": "Light, neutral-tasting oil with a high smoke point. Excellent for frying and sautéing.",
+    "dietary_tags": ["Cooking Oil", "Light", "Versatile"],
+    "image": "",
+    "price": "1300.00",
+    "price_unit": "per 1L bottle",
+    "stock": 50,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 90,
+  "fields": {
+    "category": 8,
+    "name": "Whole Wheat Bread",
+    "description": "Freshly baked whole wheat bread, perfect for a healthy breakfast or sandwiches.",
+    "dietary_tags": ["Bakery", "Whole Grain", "Fresh"],
+    "image": "",
+    "price": "800.00",
+    "price_unit": "per loaf",
+    "stock": 35,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 91,
+  "fields": {
+    "category": 8,
+    "name": "Meat Pie",
+    "description": "Flaky pastry filled with seasoned minced meat. A popular Nigerian snack.",
+    "dietary_tags": ["Bakery", "Savory", "Snack"],
+    "image": "",
+    "price": "300.00",
+    "price_unit": "per piece",
+    "stock": 50,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 92,
+  "fields": {
+    "category": 8,
+    "name": "Doughnut",
+    "description": "Soft, sweet doughnuts with a sugar glaze. A classic treat for any time of day.",
+    "dietary_tags": ["Bakery", "Sweet", "Snack"],
+    "image": "",
+    "price": "200.00",
+    "price_unit": "per piece",
+    "stock": 45,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 93,
+  "fields": {
+    "category": 8,
+    "name": "Coconut Candy",
+    "description": "Sweet and chewy coconut candy. A traditional Nigerian snack made with grated coconut and sugar.",
+    "dietary_tags": ["Bakery", "Sweet", "Local", "Snack"],
+    "image": "",
+    "price": "150.00",
+    "price_unit": "per pack",
+    "stock": 40,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 94,
+  "fields": {
+    "category": 8,
+    "name": "Peanuts (Groundnuts)",
+    "description": "Roasted peanuts, a classic and nutritious snack. Perfect for munching on or adding to dishes.",
+    "dietary_tags": ["Nuts", "Protein", "Snack"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per 200g pack",
+    "stock": 60,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 95,
+  "fields": {
+    "category": 8,
+    "name": "Cashew Nuts",
+    "description": "Premium roasted cashew nuts. A delicious and healthy snack rich in nutrients.",
+    "dietary_tags": ["Nuts", "Premium", "Healthy", "Snack"],
+    "image": "",
+    "price": "2500.00",
+    "price_unit": "per 500g pack",
+    "stock": 25,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 96,
+  "fields": {
+    "category": 8,
+    "name": "Plantain Chips",
+    "description": "Crispy, savory fried plantain chips. A popular and addictive Nigerian snack.",
+    "dietary_tags": ["Snacks", "Savory", "Local"],
+    "image": "",
+    "price": "300.00",
+    "price_unit": "per pack",
+    "stock": 55,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 97,
+  "fields": {
+    "category": 8,
+    "name": "Chin Chin",
+    "description": "Sweet, crunchy fried dough snacks. A beloved traditional snack for all occasions.",
+    "dietary_tags": ["Snacks", "Sweet", "Crunchy", "Local"],
+    "image": "",
+    "price": "400.00",
+    "price_unit": "per pack",
+    "stock": 50,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 98,
+  "fields": {
+    "category": 8,
+    "name": "Almonds",
+    "description": "Raw almonds, packed with protein and healthy fats. A perfect healthy snack.",
+    "dietary_tags": ["Nuts", "Healthy", "Protein", "Snack"],
+    "image": "",
+    "price": "3200.00",
+    "price_unit": "per 500g pack",
+    "stock": 20,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 99,
+  "fields": {
+    "category": 8,
+    "name": "Puff Puff",
+    "description": "Soft, deep-fried dough balls. A fluffy and sweet street food favorite.",
+    "dietary_tags": ["Snacks", "Sweet", "Local", "Street Food"],
+    "image": "",
+    "price": "100.00",
+    "price_unit": "per piece",
+    "stock": 70,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 100,
+  "fields": {
+    "category": 8,
+    "name": "Walnuts",
+    "description": "Shelled walnut halves. Great for baking, salads, or as a brain-boosting snack.",
+    "dietary_tags": ["Nuts", "Healthy", "Omega-3", "Snack"],
+    "image": "",
+    "price": "2800.00",
+    "price_unit": "per 500g pack",
+    "stock": 18,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 101,
+  "fields": {
+    "category": 8,
+    "name": "Egg Roll",
+    "description": "Flaky pastry wrapped around a hard-boiled egg. A satisfying and popular snack.",
+    "dietary_tags": ["Bakery", "Savory", "Snack", "Protein"],
+    "image": "",
+    "price": "250.00",
+    "price_unit": "per piece",
+    "stock": 40,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 102,
+  "fields": {
+    "category": 9,
+    "name": "Eco-Friendly Dish Soap",
+    "description": "Gentle yet effective plant-based dish soap that cuts through grease without harsh chemicals. Biodegradable and safe for the environment.",
+    "dietary_tags": ["Cleaning", "Eco-Friendly", "Biodegradable", "Plant-Based"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per 500ml bottle",
+    "stock": 45,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 103,
+  "fields": {
+    "category": 9,
+    "name": "Natural Sponge",
+    "description": "Durable and biodegradable cellulose sponge for effective dishwashing and cleaning. Plastic-free and compostable.",
+    "dietary_tags": ["Cleaning", "Eco-Friendly", "Biodegradable", "Zero-Waste"],
+    "image": "",
+    "price": "350.00",
+    "price_unit": "per piece",
+    "stock": 60,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 104,
+  "fields": {
+    "category": 9,
+    "name": "Plant-Based Laundry Detergent",
+    "description": "Powerful liquid laundry detergent made from plant-derived ingredients. Tough on stains but gentle on skin and the planet.",
+    "dietary_tags": ["Cleaning", "Eco-Friendly", "Plant-Based", "Hypoallergenic"],
+    "image": "",
+    "price": "2800.00",
+    "price_unit": "per 2L bottle",
+    "stock": 30,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 105,
+  "fields": {
+    "category": 9,
+    "name": "Multi-surface Cleaner (Refill)",
+    "description": "Concentrated refill for all-purpose cleaner. Just add water to reduce plastic waste. Cuts through grease and grime on most surfaces.",
+    "dietary_tags": ["Cleaning", "Eco-Friendly", "Refill", "Zero-Waste"],
+    "image": "",
+    "price": "900.00",
+    "price_unit": "per 200ml concentrate",
+    "stock": 40,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 106,
+  "fields": {
+    "category": 9,
+    "name": "Raffia Picnic Basket",
+    "description": "Handwoven raffia basket with lid. Perfect for picnics, shopping, or storage. A beautiful and sustainable alternative to plastic.",
+    "dietary_tags": ["Paper Goods", "Eco-Friendly", "Reusable", "Handmade"],
+    "image": "",
+    "price": "4500.00",
+    "price_unit": "per basket",
+    "stock": 15,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 107,
+  "fields": {
+    "category": 9,
+    "name": "Bamboo Toothbrushes (4-pack)",
+    "description": "Set of biodegradable toothbrushes with soft bristles and sustainable bamboo handles. Plastic-free dental care.",
+    "dietary_tags": ["Paper Goods", "Eco-Friendly", "Biodegradable", "Zero-Waste"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per 4-pack",
+    "stock": 50,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 108,
+  "fields": {
+    "category": 9,
+    "name": "Beeswax Food Wraps (3-pack)",
+    "description": "Reusable food wraps made from organic cotton, beeswax, and tree resin. A sustainable alternative to plastic wrap.",
+    "dietary_tags": ["Paper Goods", "Eco-Friendly", "Reusable", "Zero-Waste"],
+    "image": "",
+    "price": "3200.00",
+    "price_unit": "per 3-pack (S,M,L)",
+    "stock": 25,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 109,
+  "fields": {
+    "category": 9,
+    "name": "Water-Saving Tap Aerator",
+    "description": "Easy-to-install aerator that reduces water flow by 50% without reducing pressure. Saves water and money on bills.",
+    "dietary_tags": ["Paper Goods", "Eco-Friendly", "Water-Saving", "Energy-Efficient"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per piece",
+    "stock": 35,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 110,
+  "fields": {
+    "category": 10,
+    "name": "Suya Spice Mix (Yaji)",
+    "description": "The iconic Nigerian spice blend for Suya. A smoky, peppery mix of ground peanuts, ginger, and chili.",
+    "dietary_tags": ["Local", "Spice Blend", "Spicy"],
+    "image": "",
+    "price": "800.00",
+    "price_unit": "per 100g pack",
+    "stock": 55,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 111,
+  "fields": {
+    "category": 10,
+    "name": "Cayenne Pepper (Ground)",
+    "description": "Fiery ground red pepper. Essential for adding heat to stews, soups, and marinades.",
+    "dietary_tags": ["Exotic", "Spicy", "Ground"],
+    "image": "",
+    "price": "600.00",
+    "price_unit": "per 50g jar",
+    "stock": 45,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 112,
+  "fields": {
+    "category": 10,
+    "name": "Curry Powder",
+    "description": "A fragrant blend of turmeric, coriander, cumin, and other spices. Perfect for rice, stews, and meats.",
+    "dietary_tags": ["Exotic", "Spice Blend", "Aromatic"],
+    "image": "",
+    "price": "750.00",
+    "price_unit": "per 100g pack",
+    "stock": 50,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 113,
+  "fields": {
+    "category": 10,
+    "name": "Uziza Seeds",
+    "description": "Aromatic and slightly spicy seeds. Ground and used to flavor soups like Ofe Nsala and Pepper Soup.",
+    "dietary_tags": ["Local", "Aromatic", "Peppery"],
+    "image": "",
+    "price": "1000.00",
+    "price_unit": "per 50g pack",
+    "stock": 30,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 114,
+  "fields": {
+    "category": 10,
+    "name": "Turmeric (Whole & Ground)",
+    "description": "Golden-yellow spice with earthy flavor and anti-inflammatory properties. Available whole or ground.",
+    "dietary_tags": ["Exotic", "Healthy", "Ground"],
+    "image": "",
+    "price": "900.00",
+    "price_unit": "per 100g pack",
+    "stock": 40,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 115,
+  "fields": {
+    "category": 10,
+    "name": "Ehuru (Calabash Nutmeg)",
+    "description": "A traditional West African spice with a complex, musky aroma. Essential for Nigerian dishes like Abacha and Ukwa.",
+    "dietary_tags": ["Local", "Aromatic", "Whole"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per 5 seeds",
+    "stock": 25,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 116,
+  "fields": {
+    "category": 10,
+    "name": "Cumin Seeds",
+    "description": "Warm, earthy seeds with a distinctive aroma. A key ingredient in curries, stews, and rice dishes.",
+    "dietary_tags": ["Exotic", "Aromatic", "Whole"],
+    "image": "",
+    "price": "850.00",
+    "price_unit": "per 50g pack",
+    "stock": 35,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 117,
+  "fields": {
+    "category": 10,
+    "name": "Iru (Locust Beans)",
+    "description": "Fermented locust beans, a traditional seasoning with a strong, pungent aroma. The base of many Nigerian soups.",
+    "dietary_tags": ["Local", "Fermented", "Pungent"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per 100g pack",
+    "stock": 60,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 118,
+  "fields": {
+    "category": 10,
+    "name": "Smoked Paprika",
+    "description": "Deep red, smoked paprika powder. Adds a rich, smoky flavor and vibrant color to dishes.",
+    "dietary_tags": ["Exotic", "Smoky", "Ground"],
+    "image": "",
+    "price": "950.00",
+    "price_unit": "per 50g jar",
+    "stock": 30,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 119,
+  "fields": {
+    "category": 10,
+    "name": "Uda Pods (Negro Pepper)",
+    "description": "Aromatic pepper pods with a spicy, medicinal flavor. Used in Pepper Soup and native dishes.",
+    "dietary_tags": ["Local", "Spicy", "Whole", "Medicinal"],
+    "image": "",
+    "price": "700.00",
+    "price_unit": "per 10 pods",
+    "stock": 40,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 120,
+  "fields": {
+    "category": 10,
+    "name": "Cinnamon Sticks",
+    "description": "Sweet and woody bark rolls. Used to infuse warmth into teas, stews, and desserts.",
+    "dietary_tags": ["Exotic", "Sweet", "Whole"],
+    "image": "",
+    "price": "650.00",
+    "price_unit": "per 5 sticks",
+    "stock": 50,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 121,
+  "fields": {
+    "category": 10,
+    "name": "Ogiri Okpei (Castor Seed Condiment)",
+    "description": "A strong, fermented condiment made from castor seeds. Adds a deep umami flavor to soups.",
+    "dietary_tags": ["Local", "Fermented", "Pungent", "Umami"],
+    "image": "",
+    "price": "450.00",
+    "price_unit": "per 50g wrap",
+    "stock": 35,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 122,
+  "fields": {
+    "category": 10,
+    "name": "Star Anise",
+    "description": "Beautiful star-shaped pods with a strong licorice flavor. Used in broths, teas, and braises.",
+    "dietary_tags": ["Exotic", "Aromatic", "Whole", "Licorice"],
+    "image": "",
+    "price": "1100.00",
+    "price_unit": "per 10 pieces",
+    "stock": 20,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 123,
+  "fields": {
+    "category": 10,
+    "name": "Cameroon Pepper (Whole)",
+    "description": "Exceptionally hot and flavorful whole peppers. A staple for many West African dishes.",
+    "dietary_tags": ["Local", "Spicy", "Whole"],
+    "image": "",
+    "price": "1300.00",
+    "price_unit": "per 100g pack",
+    "stock": 45,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 124,
+  "fields": {
+    "category": 10,
+    "name": "Bay Leaves",
+    "description": "Dried aromatic leaves used to add depth to soups, stews, and rice dishes. Remove before serving.",
+    "dietary_tags": ["Exotic", "Aromatic", "Whole"],
+    "image": "",
+    "price": "300.00",
+    "price_unit": "per 20 leaves",
+    "stock": 65,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
 }
 
 
 ]
+
