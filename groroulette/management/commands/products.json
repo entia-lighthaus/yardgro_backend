@@ -1,0 +1,1221 @@
+[
+  
+{
+  "model": "marketplace.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "Rice (Long Grain)",
+    "description": "Nigerian Rice. Great Fiber Quality",
+    "dietary_tags": ["High-Fiber", "Organic"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per kg",
+    "stock": 100,
+    "popularity": 10,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "Maize",
+    "description": "Maize with high Fiber Quality",
+    "dietary_tags": ["High-Fiber", "Organic" ,"Non-GMO"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per kg",
+    "stock": 1000,
+    "popularity": 10,
+    "created_at": "2025-08-15T14:35:36.954Z",
+    "updated_at": "2025-08-15T14:35:36.954Z"
+  }
+},  
+
+{
+  "model": "marketplace.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "Millet",
+    "description": "Millet with high Fiber Quality",
+    "dietary_tags": ["High-Fiber", "Organic" ,"Non-GMO"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per kg",
+    "stock": 1000,
+    "popularity": 6,
+    "created_at": "2025-08-15T14:35:52.821Z",
+    "updated_at": "2025-08-15T14:35:52.822Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "name": "Sorghum",
+    "description": "Sorghum with high Fiber Quality",
+    "dietary_tags": ["High-Fiber", "Organic" ,"Non-GMO"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per kg",
+    "stock": 1000,
+    "popularity": 8,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "name": "Ofada Rice",
+    "price": 7500,
+    "price_unit": "per 5kg bag",
+    "description": "Local unpolished rice, known for its unique aroma and texture. A must-have for ofada stew.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "Local"],
+    "image": "",
+    "popularity": 9,
+    "stock": 30,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+}
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "name": "Basmati Rice",
+    "price": 5200,
+    "price_unit": "per kg",
+    "description": "Long-grain aromatic rice from India, ideal for fried rice and biryani.",
+    "dietary_tags": ["Vegan", "Gluten-Free"],
+    "image": "",
+    "popularity": 10,
+    "stock": 30,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+}
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "name": "Brown Rice",
+    "price": 4800,
+    "price_unit": "per 2kg bag",
+    "description": "Whole grain rice, a healthier alternative packed with fiber and nutrients.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "Healthy"],
+    "image": "",
+    "popularity": 8,
+    "stock": 30,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+}
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "name": "Brown Beans",
+    "price": 1800,
+    "price_unit": "per kg",
+    "description": "Common brown beans, great for making porridge or stew.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "High-Protein"],
+    "image": "",
+    "popularity": 10,
+    "stock": 30,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 9,
+  "fields": {
+  "category": 1,
+  "name": "White Beans (Honey Beans)",
+  "price": 1700,
+  "price_unit": "per kg",
+  "description": "Creamy and soft white beans, perfect for boiling and frying.",
+  "dietary_tags": ["Vegan", "Gluten-Free", "High-Protein"],
+  "image": "",
+  "popularity": 8,
+  "stock": 30,
+  "created_at": "2025-08-15T14:36:21.279Z",
+  "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "name": "Black-eyed Beans (Ewa Oloyin)",
+    "price": 2000,
+    "price_unit": "per kg",
+    "description": "Sweet and tender beans, a favourite for porridge.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "High-Protein", "Local"],
+    "image": "",
+    "popularity": 8,
+    "stock": 30,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+}
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "name": "Lentils",
+    "price": 2500,
+    "price_unit": "per kg",
+    "description": "Quick-cooking legumes, ideal for soups, stews, and salads.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "High-Protein", "Healthy"],
+    "image": "",
+    "popularity": 8,
+    "stock": 90,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+}
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "name": "Yam",
+    "price": 3500,
+    "price_unit": "per small tuber",
+    "description": "A staple tuber, can be boiled, fried (pounded yam), or roasted.",
+    "dietary_tags": ["Vegan", "Gluten-Free"],
+    "image": "",
+    "popularity": 10,
+    "stock": 90,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 13,
+  "fields": {
+    "category": 1,
+    "name": "Sweet Potato",
+    "price": 1200,
+    "price_unit": "per kg",
+    "description": "Naturally sweet tuber, can be boiled, fried, or roasted.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "Healthy"],
+    "image": "",
+    "popularity": 7,
+    "stock": 90,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 14,
+  "fields": {
+    "category": 1,
+    "name": "Irish Potatoes",
+    "price": 1500,
+    "price_unit": "per kg",
+    "description": "Versatile potatoes, perfect for chips, mashed potatoes, or stews.",
+    "dietary_tags": ["Vegan", "Gluten-Free"],
+    "image": "",
+    "popularity": 8,
+    "stock": 90,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 15,
+  "fields": {
+    "category": 1,
+    "name": "Garri (Ijebu)",
+    "price": 1300,
+    "price_unit": "per kg",
+    "description": "Fermented, gritty cassava flakes. Can be eaten with water, sugar, and milk (eba).",
+    "dietary_tags": ["Vegan", "Gluten-Free", "Local"],
+    "image": "",
+    "popularity": 10,
+    "stock": 90,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 16,
+  "fields": {
+    "category": 1,
+    "name": "Semolina",
+    "price": 1000,
+    "price_unit": "per kg",
+    "description": "Fresh Semo. Can be eaten with soup.",
+    "dietary_tags": ["Vegan", "Gluten-Free", "Local"],
+    "image": "",
+    "popularity": 8,
+    "stock": 90,
+    "created_at": "2025-08-15T14:36:21.279Z",
+    "updated_at": "2025-08-15T14:36:21.279Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 17,
+  "fields": {
+    "category": 2,
+    "name": "Ribeye Steak",
+    "description": "Premium fresh ribeye steak, perfect for grilling. Well-marbled for flavor.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2850.00",
+    "price_unit": "per kg",
+    "stock": 25,
+    "popularity": 8,
+    "created_at": "2025-08-23T14:34:40.147Z",
+    "updated_at": "2025-08-23T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 18,
+  "fields": {
+    "category": 2,
+    "name": "Beef (Assorted Cuts)",
+    "description": "Fresh assorted beef cuts for stews, soups, and frying.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "/images/products/assorted_beef.jpg",
+    "price": "2200.00",
+    "price_unit": "per kg",
+    "stock": 40,
+    "popularity": 10,
+    "created_at": "2025-08-23T14:34:40.147Z",
+    "updated_at": "2025-08-23T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 19,
+  "fields": {
+    "category": 2,
+    "name": "Beef Liver",
+    "description": "Fresh, nutrient-rich beef liver. Ideal for frying or adding to stews.",
+    "dietary_tags": ["Fresh", "High-Protein", "Iron-Rich"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per kg",
+    "stock": 15,
+    "popularity": 9,
+    "created_at": "2025-08-23T14:34:40.147Z",
+    "updated_at": "2025-08-23T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 20,
+  "fields": {
+    "category": 2,
+    "name": "Cow Leg",
+    "description": "Perfect for making Nigerian cow leg stew (Nkwobi) or a rich stock.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2000.00",
+    "price_unit": "per kg",
+    "stock": 10,
+    "popularity": 10,
+    "created_at": "2025-08-23T14:34:40.147Z",
+    "updated_at": "2025-08-23T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 21,
+  "fields": {
+    "category": 2,
+    "name": "Beef Brisket",
+    "description": "A flavorful and tender cut, excellent for slow cooking, braising, or smoking.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "3200.00",
+    "price_unit": "per kg",
+    "stock": 56,
+    "popularity": 5,
+    "created_at": "2025-08-23T14:34:40.147Z",
+    "updated_at": "2025-08-23T14:34:40.147Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 22,
+  "fields": {
+    "category": 2,
+    "name": "Whole Chicken",
+    "description": "Fresh, whole chicken. Great for roasting, boiling for stock, or making pepper soup.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "3500.00",
+    "price_unit": "per bird",
+    "stock": 30,
+    "popularity": 10,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 23,
+  "fields": {
+    "category": 2,
+    "name": "Turkey Wings",
+    "description": "Large, meaty turkey wings. Perfect for a hearty stew or soup.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2800.00",
+    "price_unit": "per kg",
+    "stock": 18,
+    "popularity": 10,
+    "created_at": "2025-08-23T14:34:40.147Z",
+    "updated_at": "2025-08-23T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 24,
+  "fields": {
+    "category": 2,
+    "name": "Chicken Breast",
+    "description": "Skinless and boneless chicken breast fillets. Lean and versatile.",
+    "dietary_tags": ["Fresh", "High-Protein", "Low-Fat"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per kg",
+    "stock": 45,
+    "popularity": 9,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 25,
+  "fields": {
+    "category": 2,
+    "name": "Whole Duck",
+    "description": "Fresh whole duck. A rich and flavorful alternative to chicken.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "/images/products/duck.jpg",
+    "price": "5000.00",
+    "price_unit": "per bird",
+    "stock": 5,
+    "popularity": 4,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 26,
+  "fields": {
+    "category": 2,
+    "name": "Quail Eggs (Tray)",
+    "description": "A tray of nutritious quail eggs. Considered a delicacy and rich in nutrients.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per tray",
+    "stock": 20,
+    "popularity": 6,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 27,
+  "fields": {
+    "category": 2,
+    "name": "Goat Meat (Chopped)",
+    "description": "Freshly chopped goat meat. Essential for Nigerian pepper soup and asun.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "3000.00",
+    "price_unit": "per kg",
+    "stock": 22,
+    "popularity": 8,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 28,
+  "fields": {
+    "category": 2,
+    "name": "Smoked Goat Meat",
+    "description": "Traditionally smoked goat meat, adds a deep, savory flavor to dishes.",
+    "dietary_tags": ["Smoked", "High-Protein"],
+    "image": "",
+    "price": "3500.00",
+    "price_unit": "per kg",
+    "stock": 14,
+    "popularity": 5,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 29,
+  "fields": {
+    "category": 2,
+    "name": "Lamb Chops",
+    "description": "Tender and flavorful lamb chops. Ideal for grilling or pan-searing.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "/images/products/lamb_chops.jpg",
+    "price": "4500.00",
+    "price_unit": "per kg",
+    "stock": 8,
+    "popularity": 5,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 30,
+  "fields": {
+    "category": 2,
+    "name": "Fresh Tilapia",
+    "description": "Fresh whole tilapia, cleaned and ready for cooking. A popular freshwater fish.",
+    "dietary_tags": ["Fresh", "High-Protein", "Low-Fat"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per fish",
+    "stock": 35,
+    "popularity": 9,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 31,
+  "fields": {
+    "category": 2,
+    "name": "Catfish (Point & Kill)",
+    "description": "Fresh catfish, cleaned upon purchase. Perfect for pepper soup or frying.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2000.00",
+    "price_unit": "per fish",
+    "stock": 25,
+    "popularity": 8,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 32,
+  "fields": {
+    "category": 2,
+    "name": "Croaker Fish",
+    "description": "A flavorful and firm-fleshed fish, excellent for frying or in soups.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2200.00",
+    "price_unit": "per fish",
+    "stock": 15,
+    "popularity": 7,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 33,
+  "fields": {
+    "category": 2,
+    "name": "Jumbo Prawns",
+    "description": "Fresh, de-veined jumbo prawns. Great for grilling, frying, or soups.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "4200.00",
+    "price_unit": "per kg",
+    "stock": 12,
+    "popularity": 6,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 34,
+  "fields": {
+    "category": 2,
+    "name": "Crabs (Live)",
+    "description": "Live crabs, perfect for making a rich and delicious crab stew.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2500.00",
+    "price_unit": "per kg",
+    "stock": 10,
+    "popularity": 5,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 35,
+  "fields": {
+    "category": 2,
+    "name": "Octopus",
+    "description": "Fresh octopus, cleaned and tenderized. Ideal for grilling or stews.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "3800.00",
+    "price_unit": "per kg",
+    "stock": 7,
+    "popularity": 7,
+    "created_at": "2025-08-15T14:34:40.147Z",
+    "updated_at": "2025-08-15T14:34:40.147Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 36,
+  "fields": {
+    "category": 3,
+    "name": "Peak Milk (Tin)",
+    "description": "Full cream evaporated milk in a tin. Rich and creamy for tea, coffee, and pap.",
+    "dietary_tags": ["Dairy"],
+    "image": "",
+    "price": "450.00",
+    "price_unit": "per tin",
+    "stock": 80,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 37,
+  "fields": {
+    "category": 3,
+    "name": "Cowbell Milk",
+    "description": "Popular evaporated milk, ideal for a quick energy boost in beverages.",
+    "dietary_tags": ["Dairy"],
+    "image": "",
+    "price": "420.00",
+    "price_unit": "per tin",
+    "stock": 75,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 38,
+  "fields": {
+    "category": 3,
+    "name": "Nunu (Local Fresh Milk)",
+    "description": "Fresh, locally sourced cow's milk. Requires boiling before consumption.",
+    "dietary_tags": ["Dairy", "Local", "Fresh"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per liter",
+    "stock": 20,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+{
+  "model": "marketplace.product",
+  "pk": 39,
+  "fields": {
+    "category": 3,
+    "name": "Soy Milk",
+    "description": "Plant-based milk made from soybeans. A dairy-free alternative rich in protein.",
+    "dietary_tags": ["Plant-Based", "Lactose-Free", "Vegan"],
+    "image": "",
+    "price": "900.00",
+    "price_unit": "per 1L carton",
+    "stock": 45,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 40,
+  "fields": {
+    "category": 3,
+    "name": "Condensed Milk",
+    "description": "Sweetened thickened milk. Perfect for desserts, baking, and adding to beverages.",
+    "dietary_tags": ["Dairy", "Sweet"],
+    "image": "",
+    "price": "700.00",
+    "price_unit": "per tin",
+    "stock": 60,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 41,
+  "fields": {
+    "category": 3,
+    "name": "Loya Milk",
+    "description": "Fortified filled milk powder for a nutritious and affordable option.",
+    "dietary_tags": ["Dairy"],
+    "image": "",
+    "price": "1800.00",
+    "price_unit": "per 900g",
+    "stock": 50,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 42,
+  "fields": {
+    "category": 3,
+    "name": "Yoghurt (Hollandia)",
+    "description": "Creamy and delicious strawberry flavored yoghurt from Hollandia.",
+    "dietary_tags": ["Dairy", "Probiotic"],
+    "image": "",
+    "price": "250.00",
+    "price_unit": "per 175ml",
+    "stock": 120,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 43,
+  "fields": {
+    "category": 3,
+    "name": "Yoghurt (FarmFresh)",
+    "description": "Natural and plain yoghurt, great for breakfast, smoothies, or as a side.",
+    "dietary_tags": ["Dairy", "Probiotic", "Natural"],
+    "image": "",
+    "price": "1100.00",
+    "price_unit": "per 500g",
+    "stock": 140,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 44,
+  "fields": {
+    "category": 3,
+    "name": "Cheese (Cheddar)",
+    "description": "Imported sharp cheddar cheese. Perfect for sandwiches, baking, and snacks.",
+    "dietary_tags": ["Dairy"],
+    "image": "",
+    "price": "2200.00",
+    "price_unit": "per kg",
+    "stock": 130,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 45,
+  "fields": {
+    "category": 3,
+    "name": "Cheese (Wara)",
+    "description": "Fresh local soft cheese made from cow's milk. A Nigerian delicacy.",
+    "dietary_tags": ["Dairy", "Local", "Fresh"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per wrap",
+    "stock": 350,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 46,
+  "fields": {
+    "category": 3,
+    "name": "Chicken Eggs (Crate)",
+    "description": "A full crate of fresh, grade A chicken eggs. A kitchen essential.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "2200.00",
+    "price_unit": "per crate (30 eggs)",
+    "stock": 250,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 47,
+  "fields": {
+    "category": 3,
+    "name": "Quail Eggs (Tray)",
+    "description": "A tray of nutritious quail eggs. Considered a delicacy and rich in nutrients.",
+    "dietary_tags": ["Fresh", "High-Protein"],
+    "image": "",
+    "price": "1500.00",
+    "price_unit": "per tray",
+    "stock": 18,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+
+{
+  "model": "marketplace.product",
+  "pk": 48,
+  "fields": {
+    "category": 4,
+    "name": "Ugu (Pumpkin Leaves)",
+    "description": "Fresh, tender pumpkin leaves. A key ingredient for Nigerian soups like egusi and edikaikong.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Fresh"],
+    "image": "",
+    "price": "300.00",
+    "price_unit": "per bunch",
+    "stock": 50,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 49,
+  "fields": {
+    "category": 4,
+    "name": "Soko (Lagos Spinach)",
+    "description": "A robust and nutritious leafy green, perfect for stews and efo riro.",
+    "dietary_tags": [""],
+    "image": "",
+    "price": "250.00",
+    "price_unit": "per bunch",
+    "stock": 45,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 50,
+  "fields": {
+    "category": 4,
+    "name": "Efo Tete (African Spinach)",
+    "description": "A traditional green, rich in nutrients. Ideal for efo riro and other native soups.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Fresh"],
+    "image": "",
+    "price": "280.00",
+    "price_unit": "per bunch",
+    "stock": 40,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 51,
+  "fields": {
+    "category": 4,
+    "name": "Lettuce",
+    "description": "Crisp and fresh lettuce, perfect for salads, burgers, and wraps.",
+    "dietary_tags": ["Leafy", "Vegetable", "Fresh", "Salad"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per head",
+    "stock": 30,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 52,
+  "fields": {
+    "category": 4,
+    "name": "Cabbage",
+    "description": "Fresh, dense cabbage. Great for salads, stir-fries, and as a side for rice dishes.",
+    "dietary_tags": ["Vegetable", "Fresh", "Crunchy"],
+    "image": "",
+    "price": "800.00",
+    "price_unit": "per head",
+    "stock": 35,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 53,
+  "fields": {
+    "category": 4,
+    "name": "Tomatoes",
+    "description": "Fresh, ripe tomatoes. The base for most stews, sauces, and soups.",
+    "dietary_tags": ["Vegetable", "Fresh", "Organic", "Essential"],
+    "image": "",
+    "price": "400.00",
+    "price_unit": "per kg",
+    "stock": 100,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 54,
+  "fields": {
+    "category": 4,
+    "name": "Bell Peppers (Tatashe)",
+    "description": "Large, mild red peppers. Used for making a smooth and colorful stew base.",
+    "dietary_tags": ["Vegetable", "Organic", "Local", "Fresh", "Pepper"],
+    "image": "",
+    "price": "700.00",
+    "price_unit": "per kg",
+    "stock": 60,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 55,
+  "fields": {
+    "category": 4,
+    "name": "Scotch Bonnet (Rodo)",
+    "description": "Fiery hot peppers essential for adding spice to Nigerian dishes. Handle with care!",
+    "dietary_tags": ["Vegetable", "Fresh", "Organic", "Local", "Pepper", "Spicy"],
+    "image": "",
+    "price": "350.00",
+    "price_unit": "per kg",
+    "stock": 55,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 56,
+  "fields": {
+    "category": 4,
+    "name": "Onions",
+    "description": "Essential cooking ingredient. Adds depth and aroma to all savory dishes.",
+    "dietary_tags": ["Vegetable", "Fresh","Organic", "Local", "Essential"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per kg",
+    "stock": 90,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 57,
+  "fields": {
+    "category": 4,
+    "name": "Carrots",
+    "description": "Sweet and crunchy carrots. Perfect for stews, salads, juicing, or as a healthy snack.",
+    "dietary_tags": ["Vegetable", "Fresh", "Sweet", "Crunchy"],
+    "image": "",
+    "price": "450.00",
+    "price_unit": "per kg",
+    "stock": 40,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 58,
+  "fields": {
+    "category": 4,
+    "name": "Cucumber",
+    "description": "Cooling and hydrating cucumber. Great for salads, garnishes, or eating fresh.",
+    "dietary_tags": ["Vegetable", "Fresh", "Organic", "Local", "Hydrating"],
+    "image": "",
+    "price": "300.00",
+    "price_unit": "per piece",
+    "stock": 50,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 59,
+  "fields": {
+    "category": 4,
+    "name": "Asparagus",
+    "description": "Tender green asparagus spears. A premium vegetable for roasting, grilling, or steaming.",
+    "dietary_tags": ["Vegetable", "Organic", "Imported", "Fresh", "Premium"],
+    "image": "",
+    "price": "1200.00",
+    "price_unit": "per bunch",
+    "stock": 15,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 60,
+  "fields": {
+    "category": 4,
+    "name": "Okra",
+    "description": "Fresh green okra pods. Used to make the popular draw-soup, okro soup.",
+    "dietary_tags": ["Vegetable", "Local", "Organic", "Local", "Fresh"],
+    "image": "",
+    "price": "400.00",
+    "price_unit": "per kg",
+    "stock": 40,
+    "popularity": 9,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 61,
+  "fields": {
+    "category": 4,
+    "name": "Garden Eggs",
+    "description": "Creamy and slightly bitter garden eggs. Often eaten raw, roasted, or used in stews.",
+    "dietary_tags": ["Vegetable", "Local", "Fresh"],
+    "image": "",
+    "price": "350.00",
+    "price_unit": "per kg",
+    "stock": 30,
+    "popularity": 6,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 62,
+  "fields": {
+    "category": 4,
+    "name": "Bitter Leaf (Onugbu)",
+    "description": "Washed bitter leaf. Essential for the iconic Onugbu soup (Bitterleaf Soup).",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Bitter"],
+    "image": "",
+    "price": "500.00",
+    "price_unit": "per bunch",
+    "stock": 25,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 63,
+  "fields": {
+    "category": 4,
+    "name": "Waterleaf",
+    "description": "Soft, succulent waterleaf. The key green for making Nigerian waterleaf soup.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Fresh"],
+    "image": "",
+    "price": "200.00",
+    "price_unit": "per bunch",
+    "stock": 45,
+    "popularity": 8,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 64,
+  "fields": {
+    "category": 4,
+    "name": "Achara (African Wild Spinach)",
+    "description": "A unique leafy vegetable used in various traditional soups across Nigeria.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Fresh"],
+    "image": "",
+    "price": "300.00",
+    "price_unit": "per bunch",
+    "stock": 20,
+    "popularity": 5,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 65,
+  "fields": {
+    "category": 4,
+    "name": "Scent Leaf (Effirin)",
+    "description": "Aromatic scent leaf. Used to add a distinct flavor and fragrance to soups like ofe akwu.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Aromatic"],
+    "image": "",
+    "price": "150.00",
+    "price_unit": "per bunch",
+    "stock": 35,
+    "popularity": 7,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 66,
+  "fields": {
+    "category": 4,
+    "name": "Afang Leaf",
+    "description": "Fresh Afang leaves. The essential ingredient for the Ghanian and Nigerian Afang soup.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Fresh"],
+    "image": "",
+    "price": "600.00",
+    "price_unit": "per bunch",
+    "stock": 22,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+},
+
+{
+  "model": "marketplace.product",
+  "pk": 67,
+  "fields": {
+    "category": 4,
+    "name": "Oha Leaf",
+    "description": "Fresh Oha leaves. Crucial for the flavorful and aromatic Ofe Oha soup.",
+    "dietary_tags": ["Leafy", "Vegetable", "Local", "Fresh", "Aromatic"],
+    "image": "",
+    "price": "550.00",
+    "price_unit": "per bunch",
+    "stock": 18,
+    "popularity": 10,
+    "created_at": "2025-08-23T10:00:00.000Z",
+    "updated_at": "2025-08-23T10:00:00.000Z"
+  }
+}
+
+
+]

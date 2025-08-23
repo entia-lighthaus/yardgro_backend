@@ -26,7 +26,10 @@ class Product(models.Model):
     image = models.ImageField(upload_to='product_images/', blank=True, null=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    price_unit = models.CharField(max_length=50, blank=True, null=True)
+    dietary_tags = models.JSONField(default=list, blank=True)  # TO_DO ... try CharField with choices
     stock = models.PositiveIntegerField(default=0)
+    popularity = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

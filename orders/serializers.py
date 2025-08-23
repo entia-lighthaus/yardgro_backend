@@ -4,6 +4,8 @@ from marketplace.models import Product
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
+    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
+
     class Meta:
         model = OrderItem
         fields = ['id', 'product', 'quantity']
@@ -23,12 +25,12 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         items_data = validated_data.pop('items')
-        user = self.context['request'].user  # capture logged-in user
+        user = self.context['request'].user
         validated_data.pop('user', None)
         order = Order.objects.create(user=user, **validated_data)
 
         for item_data in items_data:
-            product_id = item_data['product']  # this is an ID, not an object
+            product_id = item_data['product']  # assign first!
             quantity = item_data['quantity']
 
             # fetch product from DB
@@ -52,3 +54,5 @@ class OrderSerializer(serializers.ModelSerializer):
             OrderItem.objects.create(order=order, product=product, quantity=quantity)
 
         return order
+
+

@@ -1,0 +1,93 @@
+[
+{
+  "model": "marketplace.category",
+  "pk": 1,
+  "fields": {
+    "name": "Grains & Staples",
+    "description": "All types of grains and staples"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 2,
+  "fields": {
+    "name": "Meat & Seafood",
+    "description": "All types of Protein (Meat & Poultry)"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 3,
+  "fields": {
+    "name": "Dairy & Eggs",
+    "description": "All types of quality Dairy & Eggs"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 4,
+  "fields": {
+    "name": "Vegetables & Leafy Greens",
+    "description": "All types of fresh Vegetables & Leafy Greens, locally and internationally sourced"
+  }
+},
+
+
+{
+  "model": "marketplace.category",
+  "pk": 5,
+  "fields": {
+    "name": "Fresh Fruits",
+    "description": "All types of Fresh Fruits, locally and internationally sourced"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 6,
+  "fields": {
+    "name": "Tubers",
+    "description": "All types of fresh Tubers & Roots, locally and internationally sourced"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 7,
+  "fields": {
+    "name": "Oils",
+    "description": "All types of Proteinous Seafood & Fish"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 8,
+  "fields": {
+    "name": "Bakery & Snacks",
+    "description": "All types of quality Bakery & Snacks"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 9,
+  "fields": {
+    "name": "Eco & Household Essentials",
+    "description": "All types of Eco & Household Essentials"
+  }
+},
+
+{
+  "model": "marketplace.category",
+  "pk": 10,
+  "fields": {
+    "name": "Spices",
+    "description": "All types of Eco & Household Essentials"
+  }
+}
+
+]
