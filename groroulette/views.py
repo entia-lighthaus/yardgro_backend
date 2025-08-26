@@ -2,13 +2,14 @@ from django.shortcuts import render
 from rest_framework import generics, permissions, status
 from .models import UserPreference, Spin, SpinItem, Basket, Badge, UserBadge
 from .serializers import (
-    UserPreferenceSerializer, SpinSerializer, CreateSpinSerializer,SpinItemSerializer,
+    SpinItemUpdateSerializer, UserPreferenceSerializer, SpinSerializer, CreateSpinSerializer,SpinItemSerializer,
     BasketSerializer, BadgeSerializer, UserBadgeSerializer
 )
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
@@ -28,8 +29,8 @@ class UserPreferenceView(generics.RetrieveUpdateAPIView):
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
-        return UserPreference.objects.get(user=self.request.user)
-
+        user_pref, created = UserPreference.objects.get_or_create(user=self.request.user)
+        return user_pref
 
 
 # Spin List/Create View
@@ -231,6 +232,31 @@ class SpinItemListView(generics.ListAPIView):
         return SpinItem.objects.filter(spin_id=spin_id)
 
 
+
+# This view allows users to update the quantity of a specific spin item.
+@method_decorator(csrf_exempt, name='dispatch')
+class SpinItemUpdateView(generics.UpdateAPIView):
+    queryset = SpinItem.objects.all() # update the quantity
+    serializer_class = SpinItemUpdateSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    # Automatically recalculate the spin after updating quantity
+    def perform_update(self, serializer):
+        spin_item = serializer.save()
+        # Automatically recalculate the spin after updating quantity
+        BudgetOptimizerService().recalculate_spin(spin_item.spin)
+
+
+# Spin Checkout View
+# This view allows users to checkout a spin and create an order.
+class SpinCheckoutView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, spin_id):
+        user = request.user
+        order = BudgetOptimizerService().checkout_spin(spin_id, user)
+        return Response({"order_id": order.id, "status": order.status}, status=status.HTTP_201_CREATED)
+    
 
 
 # Basket List/Create View

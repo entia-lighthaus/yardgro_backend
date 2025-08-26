@@ -71,9 +71,10 @@ class SpinItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE) # Reference to product in marketplace app
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    price_unit = models.CharField(max_length=50, blank=True, null=True)
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     quantity = models.IntegerField(default=1)
     name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
     position_in_spin = models.IntegerField()  # Order in roulette result
     is_selected = models.BooleanField(default=False)
     selected_at = models.DateTimeField(null=True, blank=True)

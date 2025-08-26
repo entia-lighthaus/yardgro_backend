@@ -38,3 +38,17 @@ class OrderSerializer(serializers.ModelSerializer):
             OrderItem.objects.create(order=order, product=product, quantity=quantity)
 
         return order
+
+
+
+
+
+    def save(self, *args, **kwargs):
+        """Reduce stock automatically when an order item is saved."""
+        if not self.pk:  # only reduce stock when creating
+            if self.product.quantity < self.quantity:
+                raise ValueError("Not enough stock available")
+            self.product.quantity -= self.quantity
+            self.product.save()
+
+        super().save(*args, **kwargs)

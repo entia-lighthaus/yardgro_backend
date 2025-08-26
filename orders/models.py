@@ -17,7 +17,7 @@ class Order(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='completed')
 
     def __str__(self):
         return f"Order {self.id} by {self.user}"
@@ -33,14 +33,6 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.quantity} x {self.product.name}"
 
-    def save(self, *args, **kwargs):
-        """Reduce stock automatically when an order item is saved."""
-        if not self.pk:  # only reduce stock when creating
-            if self.product.quantity < self.quantity:
-                raise ValueError("Not enough stock available")
-            self.product.quantity -= self.quantity
-            self.product.save()
 
-        super().save(*args, **kwargs)
 
 

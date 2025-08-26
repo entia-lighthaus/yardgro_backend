@@ -30,9 +30,10 @@ class OrderSerializer(serializers.ModelSerializer):
         order = Order.objects.create(user=user, **validated_data)
 
         for item_data in items_data:
-            product_id = item_data['product']  # assign first!
+            #product_id = item_data['product']  # assign first!
+            product_id = item_data['product'].id if hasattr(item_data['product'], 'id') else item_data['product']
             quantity = item_data['quantity']
-
+        
             # fetch product from DB
             try:
                 product = Product.objects.get(id=product_id)

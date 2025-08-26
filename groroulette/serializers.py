@@ -8,18 +8,52 @@ from .models import UserPreference, Spin, SpinItem, Basket, Badge, UserBadge
 class UserPreferenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPreference
-        fields = '__all__'
+        fields = [
+            'dietary_restrictions',
+            'allergies',
+            'preferred_categories',
+            'excluded_brands',
+            'max_budget_default'
+        ]
+
+
+# Spin Item Serializer
+# This serializer handles the individual items within a spin.
+# It allows users to view and manage the products selected in their spins.
+class SpinItemSerializer(serializers.ModelSerializer):
+    category = serializers.SerializerMethodField()
+
+    class Meta:
+        model = SpinItem
+        fields = ['id', 'product', 'name', 'price', 'price_unit', 'unit_price', 'quantity', 'position_in_spin', 'is_selected', 'category']
+
+    def get_category(self, obj):
+        return obj.product.category.name if obj.product and obj.product.category else None
+
+
+# Spin Item Update Serializer
+# This serializer is used to update the quantity of a spin item.
+class SpinItemUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SpinItem
+        fields = ['quantity']
+
 
 
 # Spin Serializer
 # This serializer handles the spin data for the roulette feature.
 # It allows users to view and manage their spins, including budget, preferences, and selected items.
 class SpinSerializer(serializers.ModelSerializer):
+    items = SpinItemSerializer(many=True, read_only=True,)
     preferences = UserPreferenceSerializer(read_only=True)
     preferences_snapshot = serializers.JSONField(read_only=True)
     class Meta:
         model = Spin
-        fields = '__all__'
+        fields = [
+            'id', 'preferences', 'preferences_snapshot', 'budget', 'currency',
+            'total_items_generated', 'total_value', 'max_items_to_select', 'status',
+            'selection_started_at', 'completed_at', 'created_at', 'user', 'items'
+        ]
 
 # Create Spin Serializer
 # This serializer is used to create a new spin with a budget and currency.
@@ -27,14 +61,6 @@ class CreateSpinSerializer(serializers.Serializer):
     budget = serializers.DecimalField(max_digits=10, decimal_places=2, min_value=1000)
     currency = serializers.CharField(max_length=3, default='NGN')
 
-
-# Spin Item Serializer
-# This serializer handles the individual items within a spin.
-# It allows users to view and manage the products selected in their spins.
-class SpinItemSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SpinItem
-        fields = '__all__'
 
 
 # Basket Serializer
