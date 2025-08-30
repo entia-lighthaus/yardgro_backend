@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import UserPreference, Spin, SpinItem, Basket, Badge, UserBadge
-
+from .models import UserPreference, Spin, SpinItem, Badge, UserBadge
+from orders.models import Basket, BasketItem
 
 # User Preference Serializer
 # This serializer handles the user preferences for spins.
@@ -31,12 +31,24 @@ class SpinItemSerializer(serializers.ModelSerializer):
         return obj.product.category.name if obj.product and obj.product.category else None
 
 
+
 # Spin Item Update Serializer
 # This serializer is used to update the quantity of a spin item.
 class SpinItemUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = SpinItem
         fields = ['quantity']
+
+
+
+
+# Spin Item Select Serializer
+# This serializer is used to select and deselect a spin item.
+# It allows users to mark items they want to include in their final selection.
+class SpinItemSelectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SpinItem
+        fields = ['id', 'is_selected', 'quantity'] # If you send {"is_selected": false}, the item will be deselected.
 
 
 
@@ -54,6 +66,7 @@ class SpinSerializer(serializers.ModelSerializer):
             'total_items_generated', 'total_value', 'max_items_to_select', 'status',
             'selection_started_at', 'completed_at', 'created_at', 'user', 'items'
         ]
+
 
 # Create Spin Serializer
 # This serializer is used to create a new spin with a budget and currency.

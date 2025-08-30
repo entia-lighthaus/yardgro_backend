@@ -52,3 +52,19 @@ class OrderSerializer(serializers.ModelSerializer):
             self.product.save()
 
         super().save(*args, **kwargs)
+
+
+
+tests
+{
+  "items": [
+    {"product": 1, "quantity": 2},
+    {"product": 3, "quantity": 1}
+  ]
+}
+
+# 1. Fetch user preferences
+        user_pref = getattr(user, 'preferences', None)
+        # 2. Query products from marketplace based on preferences, budget, etc.
+        # 3. Select optimal products for the spin
+        # 4. Create Spin and SpinItem objects

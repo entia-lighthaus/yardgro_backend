@@ -23,7 +23,7 @@ urlpatterns = [
 
     # Favorites
     path('favorites/', FavoriteListView.as_view(), name='favorite-list'),
-    path('favorites/add/', FavoriteCreateView.as_view(), name='favorite-add'),
+    path('products/favorites/add/', FavoriteCreateView.as_view(), name='favorite-add'),
     path('favorites/<int:pk>/', FavoriteDeleteView.as_view(), name='favorite-delete'),
 ]
 

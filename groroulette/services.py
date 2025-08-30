@@ -1,6 +1,6 @@
 from itertools import product
 from .models import Spin, SpinItem, Badge, UserBadge, Product, UserPreference
-from orders.models import Order, OrderItem
+from orders.models import Basket, Order, OrderItem, BasketItem
 from django.utils import timezone
 
 
@@ -100,24 +100,51 @@ class BudgetOptimizerService:
         spin.save()
 
 
-    from orders.models import Order, OrderItem
-
-    # Checkout a spin and create an order with it
-    def checkout_spin(spin_id, user):
-        spin = Spin.objects.get(id=spin_id)
-        order = Order.objects.create(
-            user=user,
-            status='completed',  # or your desired status
-            total=spin.total_value
-        )
-        for item in spin.items.all():
-            OrderItem.objects.create(
-                order=order,
+    # Add selected items from a spin to the user's basket/cart
+    def add_selected_spin_items_to_basket(self, spin, user):
+        basket, _ = Basket.objects.get_or_create(user=user)
+        selected_items = spin.items.filter(is_selected=True)
+        for idx, item in enumerate(selected_items):
+            BasketItem.objects.create(
+                basket=basket,
                 product=item.product,
                 quantity=item.quantity,
-                price=item.unit_price
+                price=item.unit_price,
+                name=item.name,
+                position_in_spin=idx + 1
             )
-        return order
+        return basket
+    
+    # add all spin items to basket
+    def add_all_spin_items_to_basket(self, spin, user):
+        basket, _ = Basket.objects.get_or_create(user=user)
+        all_items = spin.items.all()
+        for idx, item in enumerate(all_items):
+            BasketItem.objects.create(
+                basket=basket,
+                product=item.product,
+                quantity=item.quantity,
+                price=item.unit_price,
+                name=item.name,
+                position_in_spin=idx + 1
+            )
+        return basket
+
+
+    
+    # Add a specific marketplace product to the user's basket/cart
+    def add_marketplace_item_to_basket(self, product, quantity, user):
+        basket, _ = Basket.objects.get_or_create(user=user)
+        BasketItem.objects.create(
+            basket=basket,
+            product=product,
+            quantity=quantity,
+            price=product.price,
+            name=product.name,
+            position_in_spin=basket.items.count() + 1
+        )
+        return basket
+
     
     
  

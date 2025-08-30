@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions, status
-from .models import UserPreference, Spin, SpinItem, Basket, Badge, UserBadge
+from .models import UserPreference, Spin, SpinItem, Badge, UserBadge
+from orders.models import Basket, BasketItem
 from .serializers import (
     SpinItemUpdateSerializer, UserPreferenceSerializer, SpinSerializer, CreateSpinSerializer,SpinItemSerializer,
     BasketSerializer, BadgeSerializer, UserBadgeSerializer
@@ -247,8 +248,63 @@ class SpinItemUpdateView(generics.UpdateAPIView):
         BudgetOptimizerService().recalculate_spin(spin_item.spin)
 
 
+
+# Spin Item Select View
+# This view allows users to select a specific item in their spin.
+# It updates the is_selected field of the SpinItem model.
+@method_decorator(csrf_exempt, name='dispatch')
+class SpinItemSelectView(APIView):
+    def put(self, request, spin_id, item_id):
+        try:
+            item = SpinItem.objects.get(spin_id=spin_id, id=item_id)
+            item.is_selected = True
+            item.save()
+            return Response({"selected": True}, status=status.HTTP_200_OK)
+        except SpinItem.DoesNotExist:
+            return Response({"error": "SpinItem not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+
+
+# Selected Spin Item List View
+# This view allows users to list all selected items in a specific spin.
+@method_decorator(csrf_exempt, name='dispatch')
+class SelectedSpinItemListView(generics.ListAPIView):
+    serializer_class = SpinItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        spin_id = self.kwargs.get('spin_id')
+        return SpinItem.objects.filter(spin_id=spin_id, is_selected=True)
+
+
+
+# Add Selected Items to Cart View
+# This view allows users to add selected items from a spin to their basket/cart.
+@method_decorator(csrf_exempt, name='dispatch')
+class AddSelectedItemsToBasketView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, spin_id):
+        spin = get_object_or_404(Spin, id=spin_id, user=request.user)
+        basket = BudgetOptimizerService().add_selected_spin_items_to_basket(spin, request.user)
+        return Response({"basket_id": basket.id}, status=status.HTTP_201_CREATED)
+    
+
+# Add All Spin Items to Basket View
+@method_decorator(csrf_exempt, name='dispatch')
+class AddAllSpinItemsToBasketView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, spin_id):
+        spin = get_object_or_404(Spin, id=spin_id, user=request.user)
+        basket = BudgetOptimizerService().add_all_spin_items_to_basket(spin, request.user)
+        return Response({"basket_id": basket.id}, status=status.HTTP_201_CREATED)
+    
+
+
 # Spin Checkout View
 # This view allows users to checkout a spin and create an order.
+@method_decorator(csrf_exempt, name='dispatch')
 class SpinCheckoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 

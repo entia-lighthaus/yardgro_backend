@@ -76,6 +76,7 @@ class SpinItem(models.Model):
     quantity = models.IntegerField(default=1)
     name = models.CharField(max_length=255)
     position_in_spin = models.IntegerField()  # Order in roulette result
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) 
     is_selected = models.BooleanField(default=False)
     selected_at = models.DateTimeField(null=True, blank=True)
 
@@ -86,22 +87,6 @@ class SpinItem(models.Model):
     def save(self, *args, **kwargs):
         self.total_price = self.quantity * self.unit_price
         super().save(*args, **kwargs)
-
-
-
-
-# Basket Model
-# Represents a user's shopping basket, which can contain multiple SpinItems.
-# This model allows users to save their selected items from a Spin for later checkout.
-# It can also be linked to a Spin for context.
-# The checked_out field indicates whether the basket has been processed for checkout.
-class Basket(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='baskets')
-    spin = models.ForeignKey(Spin, on_delete=models.CASCADE, related_name='basket', null=True, blank=True)
-    items = models.ManyToManyField(SpinItem)
-    created_at = models.DateTimeField(auto_now_add=True)
-    checked_out = models.BooleanField(default=False)
 
 
 
